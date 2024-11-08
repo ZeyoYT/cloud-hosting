@@ -13,7 +13,7 @@ export default function Home() {
 
   return (
     <div>
-      <Button classNameX={"bg-red-500"}>I DO NOTHING</Button>
+      
     </div>
   );
 }

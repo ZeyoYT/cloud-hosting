@@ -50,24 +50,6 @@ export default function Navbar() {
               <a className="text-gray-600 hover:text-blue-600" href="#">
                 Services
               </a>
-              <ul className="absolute hidden w-40 pt-2 group-hover:block bg-gray-800 shadow-lg rounded-lg z-10">
-                <li>
-                  <a
-                    className="block px-4 py-2 text-gray-400 hover:bg-gray-700 hover:text-white"
-                    href="#"
-                  >
-                    Free
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="block px-4 py-2 text-gray-400 hover:bg-gray-700 hover:text-white"
-                    href="#"
-                  >
-                    Paid
-                  </a>
-                </li>
-              </ul>
             </li>
             <li className="">
               <a className="text-gray-600 hover:text-blue-600" href="#">
