@@ -1,10 +1,11 @@
 import React from 'react';
 
+
 const Footer = () => {
     return (
         <footer className="bg-gray-900 text-gray-300 py-10">
             <div className="max-w-screen-xl mx-auto px-4">
-                <div className="flex flex-wrap justify-between">
+                <div className="flex flex-wrap justify-evenly">
                     <div className="w-full md:w-1/4 mb-8">
                         <h2 className="text-2xl font-semibold text-white">Cloud Hosting</h2>
                         <p className="mt-4">
@@ -38,12 +39,14 @@ const Footer = () => {
                 <div className="border-t border-gray-700 pt-6 mt-6">
                     <div className="flex flex-col md:flex-row justify-between items-center">
                         <p className="text-sm">&copy; 2024 Cloud Hosting LLP. All Rights Reserved.</p>
+
                         <div className="flex space-x-4 mt-4 md:mt-0">
-                            <a href="www.facebook.com" className="text-gray-400 hover:text-white"><i className="fab fa-facebook-f"></i></a>
-                            <a href="www.x.com" className="text-gray-400 hover:text-white"><i className="fab fa-twitter"></i></a>
-                            <a href="www.instagram.com" className="text-gray-400 hover:text-white"><i className="fab fa-instagram"></i></a>
-                            <a href="www.discord.com" className="text-gray-400 hover:text-white"><i className="fab fa-discord"></i></a>
+                            <a href="https://www.facebook.com" className="text-gray-400 hover:text-white"><i className="fab fa-facebook-f"></i></a>
+                            <a href="https://www.x.com" className="text-gray-400 hover:text-white"><i className="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com" className="text-gray-400 hover:text-white"><i className="fab fa-instagram"></i></a>
+                            <a href="https://www.discord.com" className="text-gray-400 hover:text-white"><i className="fab fa-discord"></i></a>
                         </div>
+
                     </div>
                 </div>
             </div>

@@ -6,6 +6,7 @@ import Features from './components/Features';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
+
 export default function Home() {
   useEffect(() => {
     document.title = "Cloud Hosting";

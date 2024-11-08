@@ -13,7 +13,7 @@ export default function HostingPlans() {
 
   return (
     <section id="plans">
-      <h2>Our Hosting Plans</h2>
+      <h1 className="text-5xl font-bold text-center">Our Hosting Plans</h1><br/><br/>
       <ul>
         {plans.map(plan => (
           <li key={plan.id}>
