@@ -37,22 +37,22 @@ export default function Navbar() {
         >
           <ul className="flex flex-col gap-y-4 sm:flex-row sm:gap-x-8">
           <li className="">
-              <a className="text-gray-600 hover:text-blue-600" href="#">
+              <a className="text-gray-600 hover:text-blue-600" href="/">
                 Home
               </a>
             </li>
             <li className="">
-              <a className="text-gray-600 hover:text-blue-600" href="#">
+              <a className="text-gray-600 hover:text-blue-600" href="/about">
                 About
               </a>
             </li>
             <li className="releative group">
-              <a className="text-gray-600 hover:text-blue-600" href="#">
+              <a className="text-gray-600 hover:text-blue-600" href="/services">
                 Services
               </a>
             </li>
             <li className="">
-              <a className="text-gray-600 hover:text-blue-600" href="#">
+              <a className="text-gray-600 hover:text-blue-600" href="/support">
                 Support
               </a>
             </li>
