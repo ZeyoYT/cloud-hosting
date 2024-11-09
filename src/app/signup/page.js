@@ -2,13 +2,13 @@
 import React, { useEffect } from 'react';
 import Footer from '../components/Footer';
 
-const ServicesPage = () => {
+const SignupPage = () => {
     return (
-        <div className="Services-container">
+        <div className="signup-container">
             <Footer />
         </div>
     );
     
 };
 
-export default ServicesPage;
+export default SignupPage;
