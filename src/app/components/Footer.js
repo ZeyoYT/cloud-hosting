@@ -12,11 +12,12 @@ const Footer = () => {
                             Our mission is to make life easier for website developers and their customers. We offer easy-to-use, fast, and reliable web hosting services.
                         </p>
                         <div className="flex space-x-3 mt-4">
-                            <img src="/visa.png" alt="Visa" className="w-10" />
-                            <img src="/amex.png" alt="Amex" className="w-10" />
-                            <img src="/mastercard.png" alt="Mastercard" className="w-10" />
-                            <img src="/paypal.png" alt="Paypal" className="w-10" />
+                            <a href="https://www.visa.com" target="_blank" rel="noopener noreferrer"><img src="/images/download (1).png" alt="Visa" width={40} height={40} className="w-10" /></a>
+                            <a href="https://www.mastercard.com" target="_blank" rel="noopener noreferrer"><img src="/images/download (2).png" alt="Mastercard" width={40} height={40} className="w-10" /></a>
+                            <a href="https://www.paytm.com" target="_blank" rel="noopener noreferrer"><img src="/images/download (3).png" alt="Paytm" width={40} height={40} className="w-10" /></a>
+                            <a href="https://pornhub.com" target="_blank" rel="noopener noreferrer"><img src="/images/download (4).png" alt="G Pay" width={40} height={40} className="w-10" /></a>
                         </div>
+
                     </div>
                     <div className="flex flex-wrap justify-evenly w-full md:w-3/4  ">
                         <div className="text-left w-1/2 sm:w-1/4 mb-8">

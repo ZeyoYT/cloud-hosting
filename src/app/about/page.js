@@ -1,6 +1,5 @@
 "use client";
 import React from 'react';
-import Footer from '../components/Footer';
 
 const AboutPage = () => {
     return (
@@ -71,10 +70,8 @@ const AboutPage = () => {
                     </p><br />
                 </div>
             </section>
-            <Footer />
         </div>
     );
-    <Footer />
 };
 
 export default AboutPage;

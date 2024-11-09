@@ -4,7 +4,6 @@ import Navbar from './components/Navbar';
 import Hostingplan from './components/Hostingplan';
 import Features from './components/Features';
 import Contact from './components/Contact';
-import Footer from './components/Footer';
 
 
 export default function Home() {
@@ -41,8 +40,6 @@ export default function Home() {
         <h1 className="text-5xl font-bold">Features</h1><br /><br />
         <Features />
       </div>
-
-      <Footer />
     </div>
   );
 }
