@@ -1,10 +1,6 @@
 "use client";
 import { useState } from 'react';
-<<<<<<< HEAD
-import Footer from './components/Footer';
-=======
 import Footer from '../components/Footer';
->>>>>>> 524a30966aca43e7168c4d53ad17c47891462733
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -144,11 +140,7 @@ export default function Contact() {
             </p>
           </details>
         </div>
-<<<<<<< HEAD
-      </div>
-=======
       </div><br />
->>>>>>> 524a30966aca43e7168c4d53ad17c47891462733
       <Footer />
     </div>
   );
