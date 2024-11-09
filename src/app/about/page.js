@@ -68,7 +68,7 @@ const AboutPage = () => {
                         Our infrastructure is designed for high performance and reliability. We use state-of-the-art
                         data centers and the latest hardware to ensure your website is always up and running. Plus,
                         our easy-to-use control panel makes managing your hosting account a breeze.
-                    </p>
+                    </p><br />
                 </div>
             </section>
             <Footer />
