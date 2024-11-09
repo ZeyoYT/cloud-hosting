@@ -67,7 +67,7 @@ export default function Navbar() {
             <li className="mt-2 sm:mt-0">
               <a
                 className="rounded-xl border-2 border-blue-600 px-6 py-2 font-medium text-blue-600 hover:bg-blue-600 hover:text-white"
-                href="#"
+                href="/login"
               >
                 Login
               </a>

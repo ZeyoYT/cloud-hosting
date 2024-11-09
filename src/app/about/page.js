@@ -1,4 +1,6 @@
-import React from 'react';
+"use client";
+import React, { useEffect } from 'react';
+import Footer from '../components/Footer';
 
 const AboutPage = () => {
     return (
@@ -21,8 +23,10 @@ const AboutPage = () => {
                     We offer 24/7 customer support, a 99.9% uptime guarantee, and a 30-day money-back guarantee. Our team of experts is always here to help you with any issues you may encounter.
                 </p>
             </section>
+            <Footer />
         </div>
     );
+    
 };
 
 export default AboutPage;
