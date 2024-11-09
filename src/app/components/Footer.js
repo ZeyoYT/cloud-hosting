@@ -15,7 +15,7 @@ const Footer = () => {
                             <a href="https://www.visa.com" target="_blank" rel="noopener noreferrer"><img src="/images/download (1).png" alt="Visa" width={40} height={40} className="w-10" /></a>
                             <a href="https://www.mastercard.com" target="_blank" rel="noopener noreferrer"><img src="/images/download (2).png" alt="Mastercard" width={40} height={40} className="w-10" /></a>
                             <a href="https://www.paytm.com" target="_blank" rel="noopener noreferrer"><img src="/images/download (3).png" alt="Paytm" width={40} height={40} className="w-10" /></a>
-                            <a href="https://pornhub.com" target="_blank" rel="noopener noreferrer"><img src="/images/download (4).png" alt="G Pay" width={40} height={40} className="w-10" /></a>
+                            <a href="https://pay.google.com" target="_blank" rel="noopener noreferrer"><img src="/images/download (4).png" alt="G Pay" width={40} height={40} className="w-10" /></a>
                         </div>
 
                     </div>
