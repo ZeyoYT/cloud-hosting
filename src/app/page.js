@@ -1,10 +1,7 @@
-"use client";
+"use client"; 
 import React, { useEffect } from 'react';
-import Navbar from './components/Navbar';
 import Hostingplan from './components/Hostingplan';
 import Features from './components/Features';
-import Contact from './components/Contact';
-
 
 export default function Home() {
   useEffect(() => {
@@ -13,33 +10,43 @@ export default function Home() {
 
   return (
     <div className="relative text-white min-h-screen overflow-hidden">
-      <style jsx>{`
-        @keyframes blink {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.5; }
-        }
-      `}</style>
 
-      {/* Multiple blinking circles */}
-      <div className="absolute bottom-10 left-20 w-10 h-10 bg-blue-400 rounded-full opacity-75 animate-ping duration-[5000ms]"></div>
-      <div className="absolute top-16 right-32 w-14 h-14 bg-blue-400 rounded-full opacity-75 animate-ping duration-[7000ms]"></div>
-      <div className="absolute top-1/3 left-1/4 w-12 h-12 bg-blue-400 rounded-full opacity-75 animate-ping duration-[6000ms]"></div>
-      <div className="absolute bottom-20 right-10 w-8 h-8 bg-blue-400 rounded-full opacity-75 animate-ping duration-[8000ms]"></div>
-      <div className="absolute top-40 left-5 w-16 h-16 bg-blue-400 rounded-full opacity-75 animate-ping duration-[7500ms]"></div>
-
-      <div className="flex flex-col items-center text-center h-screen text-white">
-        <h1 className="text-5xl font-bold mt-20"><br /><br />Hosting that makes your website fast, and your life easy</h1><br /><br />
-        <p className="text-lg mt-4 max-w-xl">
-          Elevate your online presence with our VPS hosting solutions, offering unmatched performance and scalability...
+      <div className="flex flex-col items-center text-center px-6 py-20 lg:px-12">
+        <h1 className="text-4xl lg:text-5xl font-bold leading-snug mt-10">Hosting that makes your website fast and life easy</h1>
+        <p className="text-lg mt-4 max-w-2xl">
+          Elevate your online presence with our VPS hosting solutions, offering unmatched performance and scalability for websites of all sizes. Our state-of-the-art infrastructure ensures your site is always up and running, providing a seamless experience for your visitors.
         </p>
+        <a href="/signup" className="mt-8 bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-md text-lg font-semibold transition">
+          Get Started
+        </a>
       </div>
 
-      <Hostingplan />
+      <section className="py-16">
+        <Hostingplan />
+      </section>
 
-      <div className="text-center mt-20">
-        <h1 className="text-5xl font-bold">Features</h1><br /><br />
+      <section className="text-center py-16 ">
+        <h2 className="text-4xl font-bold mb-6">Our Features</h2>
+        <p className="text-gray-400 max-w-2xl mx-auto mb-8">
+          Discover the powerful tools and features that make Cloud Hosting a top choice for developers and businesses. From automated backups to advanced security measures, we provide everything you need to keep your site secure and running smoothly.
+        </p>
         <Features />
-      </div>
+      </section>
+
+      <section className="py-16">
+        <h2 className="text-4xl font-bold text-center mb-8">What Our Customers Say</h2>
+        <div className="flex flex-col lg:flex-row justify-center items-center space-y-6 lg:space-y-0 lg:space-x-8">
+          <blockquote className="max-w-md p-6 text-gray-300 bg-gray-800 rounded-md shadow-lg">
+            "Cloud Hosting made it so easy for us to scale our website. The speed and customer support are unmatched!"
+            <footer className="mt-4 text-blue-400">- Het Jasani, CEO of Tech-e</footer>
+          </blockquote>
+          <blockquote className="max-w-md p-6 text-gray-300 bg-gray-800 rounded-md shadow-lg">
+            "Amazing service! Our uptime has never been better, and the performance is fantastic."
+            <footer className="mt-4 text-blue-400">- Mittha Desai, Freelancer</footer>
+          </blockquote>
+        </div>
+      </section>
+
     </div>
   );
 }
