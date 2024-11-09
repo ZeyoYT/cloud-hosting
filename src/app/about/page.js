@@ -1,12 +1,6 @@
 "use client";
-<<<<<<< HEAD
-
-import React from 'react';
-import Footer from './components/Footer';
-=======
 import React from 'react';
 import Footer from '../components/Footer';
->>>>>>> 524a30966aca43e7168c4d53ad17c47891462733
 
 const AboutPage = () => {
     return (
