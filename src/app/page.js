@@ -5,6 +5,7 @@ import Features from './components/Features';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 
+
 export default function Home() {
   useEffect(() => {
     AOS.init({ duration: 900 });

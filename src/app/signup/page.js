@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
@@ -48,7 +49,7 @@ export default function Signup() {
         confirmPassword: '',
         dob: ''
       });
-      router.push('/welcome');
+      router.push('/');
     } else {
       const result = await response.json();
       setError(result.message || 'Signup failed');

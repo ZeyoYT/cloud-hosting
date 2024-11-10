@@ -1,8 +1,26 @@
 "use client";
-import Link from 'next/link';
+
 import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { isUserLoggedIn } from '../../../lib/auth';
 
 export default function Navbar() {
+    const router = useRouter();
+    const [loggedIn, setLoggedIn] = useState(false);
+  
+    useEffect(() => {
+      // Check login status when the component mounts
+      setLoggedIn(isUserLoggedIn());
+    }, []);
+  
+    const handleLogout = () => {
+      // Clear the token to log the user out
+      document.cookie = "token=; Max-Age=0; path=/;";
+      setLoggedIn(false);
+      router.push('/');
+    };
   return (
     <header className="px-4 shadow bg-gray-900 text-gray-200">
       <div className="relative mx-auto flex max-w-screen-lg flex-col py-4 sm:flex-row sm:items-center sm:justify-between">
@@ -57,20 +75,17 @@ export default function Navbar() {
               </a>
             </li>
             <li className="mt-2 sm:mt-0">
-              <a
+              {loggedIn ?(<a onClick={handleLogout}
                 className="rounded-xl border-2 border-blue-600 px-6 py-2 font-medium text-blue-600 hover:bg-blue-600 hover:text-white"
-                href="/signup"
               >
-                Sign Up
-              </a>
-            </li>
-            <li className="mt-2 sm:mt-0">
-              <a
+                Logout
+              </a>):(<a
                 className="rounded-xl border-2 border-blue-600 px-6 py-2 font-medium text-blue-600 hover:bg-blue-600 hover:text-white"
                 href="/login"
               >
                 Login
-              </a>
+              </a>)}
+              
             </li>
           </ul>
         </nav>

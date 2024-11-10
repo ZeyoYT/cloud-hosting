@@ -1,5 +1,6 @@
 "use client";
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function Login() {
@@ -10,6 +11,14 @@ export default function Login() {
   });
   const [error, setError] = useState('');
   const [submitted, setSubmitted] = useState(false);
+
+  // Check if the user is already logged in by checking cookies
+  useEffect(() => {
+    const isLoggedIn = document.cookie.split('; ').some(row => row.startsWith('authToken='));
+    if (isLoggedIn) {
+      router.push('/'); // Redirect to home if logged in
+    }
+  }, [router]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,19 +31,21 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-
+    
+    // Sending login credentials to the backend API
     const response = await fetch('/api/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(formData)
+      body: JSON.stringify(formData),
+      credentials: 'include', // This makes sure the cookie is sent with the request
     });
 
     if (response.ok) {
       setSubmitted(true);
       setFormData({ email: '', password: '' });
-      router.push('/dashboard');
+      router.push('/');  // Redirect to home page after successful login
     } else {
       const result = await response.json();
       setError(result.message || 'Login failed');

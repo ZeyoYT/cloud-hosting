@@ -11,6 +11,10 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.6.0",
     "aos": "^2.3.4",
+    "bcryptjs": "^2.4.3",
+    "cookie": "^1.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.10.0",
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106"
