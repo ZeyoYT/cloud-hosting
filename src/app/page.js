@@ -37,16 +37,18 @@ export default function Home() {
 
       <section className="py-16" data-aos="fade-left">
         <h2 className="text-4xl font-bold text-center mb-8">What Our Customers Say</h2>
-        <div className="flex flex-col lg:flex-row justify-center items-center space-y-6 lg:space-y-0 lg:space-x-8">
-          <blockquote className="max-w-md p-6 text-gray-300 bg-gray-800 rounded-md shadow-lg" data-aos="fade-up" data-aos-delay="100">
+        <div className="flex flex-col lg:flex-row justify-center items-center space-y-6 lg:space-y-0 lg:space-x-8"> 
+          <blockquote className="w-96 h-40 p-6 text-gray-300 bg-gray-800 rounded-md shadow-lg" data-aos="fade-up" data-aos-delay="100">
             "Cloud Hosting made it so easy for us to scale our website. The speed and customer support are unmatched!"
             <footer className="mt-4 text-blue-400">- Het Jasani, CEO of Tech-e</footer>
           </blockquote>
-          <blockquote className="max-w-md p-6 text-gray-300 bg-gray-800 rounded-md shadow-lg" data-aos="fade-up" data-aos-delay="200">
+          <blockquote className="w-96 h-40 p-6 text-gray-300 bg-gray-800 rounded-md shadow-lg" data-aos="fade-up" data-aos-delay="200">
             "Amazing service! Our uptime has never been better, and the performance is fantastic."
             <footer className="mt-4 text-blue-400">- Mittha Desai, Freelancer</footer>
           </blockquote>
         </div>
+
+
       </section>
     </div>
   );
