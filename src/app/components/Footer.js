@@ -1,7 +1,34 @@
-import React from 'react';
+"use client";
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 const Footer = () => {
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+
+    const handleChange = (e) => {
+        setEmail(e.target.value);
+     };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setMessage('');
+
+    const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email })
+    });
+
+    if (response.ok) {
+        setMessage('Thank you for subscribing!');
+        setEmail('');
+    } else {
+        const result = await response.json();
+        setMessage(result.message || 'Subscription failed');}
+    };
     return (
         <footer className="bg-gray-900 text-gray-300 py-12">
             <div className="max-w-screen-xl mx-auto px-4">
@@ -63,22 +90,28 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="mt-8 mb-4">
-                    <h3 className="text-lg font-semibold text-white mb-2">Subscribe to our newsletter</h3>
-                    <p className="text-gray-400 mb-4">Get the latest news and updates from Cloud Hosting.</p>
-                    <form className="flex ">
+                <div className="w-full md:w-1/4 mb-8">
+                    <h2 className="text-2xl font-semibold text-white">Subscribe to our Newsletter</h2>
+                    <p className="mt-4 text-gray-400">
+                        Get the latest updates and offers directly in your inbox.
+                    </p>
+                    <form onSubmit={handleSubmit} className="mt-4">
                         <input
                             type="email"
+                            value={email}
+                            onChange={handleChange}
+                            required
                             placeholder="Enter your email"
-                            className="p-2 rounded-l-lg bg-gray-800 text-white placeholder-gray-500 focus:outline-none"
+                            className="w-full p-3 rounded-md bg-gray-800 border border-blue-500 text-blue-400 focus:ring focus:ring-blue-500 focus:outline-none"
                         />
                         <button
                             type="submit"
-                            className="p-2 bg-blue-600 hover:bg-blue-700 text-white rounded-r-lg font-semibold"
+                            className="w-full mt-3 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-md focus:outline-none focus:ring focus:ring-blue-500"
                         >
                             Subscribe
                         </button>
                     </form>
+                    {message && <p className="mt-2 text-center text-blue-400">{message}</p>}
                 </div>
 
                 <div className="border-t border-gray-700 pt-6 mt-6 ">
