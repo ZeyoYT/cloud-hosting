@@ -4,58 +4,43 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function Signup() {
-  const router = useRouter();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
     confirmPassword: '',
-    dob: ''
+    dob: '',
   });
-  const [error, setError] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
+  const router = useRouter();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value
-    }));
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
 
-    if (formData.password !== formData.confirmPassword) {
-      setError("Passwords don't match");
-      return;
-    }
-
-    const response = await fetch('/api/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    });
-
-    if (response.ok) {
-      setSubmitted(true);
-      setFormData({
-        name: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-        dob: ''
+    try {
+      const response = await fetch('/api/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
       });
-      router.push('/');
-    } else {
-      const result = await response.json();
-      setError(result.message || 'Signup failed');
+
+      if (!response.ok) {
+        throw new Error((await response.json()).message);
+      }
+
+      setSubmitted(true);
+      setTimeout(() => router.push('/login'), 2000); // Redirect to login page after signup
+    } catch (error) {
+      setError(error.message);
     }
   };
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-black to-gray-900 text-white p-8">
       <div className="flex w-full max-w-4xl shadow-xl rounded-lg overflow-hidden bg-gray-800">

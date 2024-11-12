@@ -1,47 +1,34 @@
-import jwt from 'jsonwebtoken';
-import { serialize } from 'cookie';
-import clientPromise from '../../lib/mongodb';
+// pages/api/login.js
+
+import { MongoClient } from 'mongodb';
 
 export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Method not allowed' });
-  }
+  if (req.method === 'POST') {
+    const { email, password } = req.body;
 
-  const { email, password } = req.body;
+    if (!email || !password) {
+      return res.status(400).json({ message: 'Email and password are required.' });
+    }
 
-  try {
-    const client = await clientPromise;
+    // Connect to MongoDB
+    const client = await MongoClient.connect(process.env.MONGODB_URI);
     const db = client.db();
 
-    // Find the user in the database
+    // Find user by email
     const user = await db.collection('users').findOne({ email });
-    if (!user) {
-      return res.status(401).json({ message: 'Invalid email or password' });
+
+    // Close MongoDB connection
+    client.close();
+
+    // Check if user exists and password matches
+    if (!user || user.password !== password) {
+      return res.status(401).json({ message: 'Invalid email or password.' });
     }
 
-    // Compare passwords
-    if (password !== user.password) {
-      return res.status(401).json({ message: 'Invalid email or password' });
-    }
-
-    // Generate a JWT token
-    const token = jwt.sign({ userId: user._id, email: user.email }, process.env.JWT_SECRET, {
-      expiresIn: '1h',
-    });
-
-    // Set the token as an HTTP-only cookie
-    res.setHeader('Set-Cookie', serialize('authToken', token, {
-      httpOnly: true, // Ensures the cookie is not accessible by JavaScript
-      secure: process.env.NODE_ENV === 'production', // Ensures the cookie is only sent over HTTPS in production
-      maxAge: 3600, // 1 hour expiration
-      path: '/', // Cookie is available throughout the entire app
-      sameSite: 'lax', // CSRF protection
-    }));
-
-    // Respond with success message (no need to send token in the response body)
-    res.status(200).json({ message: 'Login successful' });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Internal server error' });
+    // Authentication successful
+    return res.status(200).json({ message: 'Login successful' });
+  } else {
+    res.setHeader('Allow', ['POST']);
+    res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 }

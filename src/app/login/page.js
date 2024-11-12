@@ -4,54 +4,42 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function Login() {
-  const router = useRouter();
-  const [formData, setFormData] = useState({
-    email: '',
-    password: ''
-  });
-  const [error, setError] = useState('');
+  const [formData, setFormData] = useState({ email: '', password: '' });
   const [submitted, setSubmitted] = useState(false);
-
-  // Check if the user is already logged in by checking cookies
-  useEffect(() => {
-    const isLoggedIn = document.cookie.split('; ').some(row => row.startsWith('authToken='));
-    if (isLoggedIn) {
-      router.push('/'); // Redirect to home if logged in
-    }
-  }, [router]);
+  const [error, setError] = useState('');
+  const router = useRouter();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value
-    }));
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
-    
-    // Sending login credentials to the backend API
-    const response = await fetch('/api/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData),
-      credentials: 'include', // This makes sure the cookie is sent with the request
-    });
+    setError(''); // Clear any previous errors
 
-    if (response.ok) {
+    try {
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error((await response.json()).message);
+      }
+
+      const data = await response.json();
+
+      localStorage.setItem('user', JSON.stringify({ email: formData.email }));
+
+
       setSubmitted(true);
-      setFormData({ email: '', password: '' });
-      router.push('/');  // Redirect to home page after successful login
-    } else {
-      const result = await response.json();
-      setError(result.message || 'Login failed');
+      setTimeout(() => router.push('/'), 2000); // Redirect to dashboard on successful login
+    } catch (error) {
+      setError(error.message);
     }
   };
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-black to-gray-900 text-white p-8">
       <div className="flex w-full max-w-4xl shadow-xl rounded-lg overflow-hidden bg-gray-800">

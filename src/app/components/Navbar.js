@@ -3,33 +3,35 @@
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useAuth } from '../../../lib/auth';
 import { useRouter } from 'next/navigation';
-import { isUserLoggedIn } from '../../../lib/auth';
 
 export default function Navbar() {
     const router = useRouter();
-    const [loggedIn, setLoggedIn] = useState(false);
-  
+    let isLoggedIn = useAuth();
+
+    
+    
     useEffect(() => {
-      // Check login status when the component mounts
-      setLoggedIn(isUserLoggedIn());
-    }, []);
+      if (!isLoggedIn) {
+         // Redirect to login if not logged in
+      }
+    }, [isLoggedIn, router]);
   
     const handleLogout = () => {
-      // Clear the token to log the user out
-      document.cookie = "token=; Max-Age=0; path=/;";
-      setLoggedIn(false);
-      router.push('/');
+      const router = useRouter();
+      localStorage.removeItem('user');
+      router.push('/login'); // Redirect to login page after logout
     };
   return (
     <header className="px-4 shadow bg-gray-900 text-gray-200">
       <div className="relative mx-auto flex max-w-screen-lg flex-col py-4 sm:flex-row sm:items-center sm:justify-between">
-        <a className="flex items-center text-2xl font-black" href="/">
+        <Link className="flex items-center text-2xl font-black" href="/">
           <span className="mr-2 text-3xl text-blue-600">
             <img src="\Cloud-host.svg" alt="Logo" width={60} height={60} />
           </span>
           <span>Cloud Hosting</span>
-        </a>
+        </Link>
         <input className="peer hidden" type="checkbox" id="navbar-open" />
         <label
           className="absolute right-0 mt-1 cursor-pointer text-xl sm:hidden"
@@ -55,36 +57,36 @@ export default function Navbar() {
         >
           <ul className="flex flex-col gap-y-4 sm:flex-row sm:gap-x-8">
           <li className="">
-              <a className="text-gray-600 hover:text-blue-600" href="/">
+              <Link className="text-gray-600 hover:text-blue-600" href="/">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="">
-              <a className="text-gray-600 hover:text-blue-600" href="/about">
+              <Link className="text-gray-600 hover:text-blue-600" href="/about">
                 About
-              </a>
+              </Link>
             </li>
             <li className="releative group">
-              <a className="text-gray-600 hover:text-blue-600" href="/services">
+              <Link className="text-gray-600 hover:text-blue-600" href="/services">
                 Services
-              </a>
+              </Link>
             </li>
             <li className="">
-              <a className="text-gray-600 hover:text-blue-600" href="/support">
+              <Link className="text-gray-600 hover:text-blue-600" href="/support">
                 Support
-              </a>
+              </Link>
             </li>
             <li className="mt-2 sm:mt-0">
-              {loggedIn ?(<a onClick={handleLogout}
+              {!isLoggedIn ?(<Link onClick={handleLogout}
                 className="rounded-xl border-2 border-blue-600 px-6 py-2 font-medium text-blue-600 hover:bg-blue-600 hover:text-white"
               >
                 Logout
-              </a>):(<a
+              </Link>):(<Link
                 className="rounded-xl border-2 border-blue-600 px-6 py-2 font-medium text-blue-600 hover:bg-blue-600 hover:text-white"
                 href="/login"
               >
                 Login
-              </a>)}
+              </Link>)}
               
             </li>
           </ul>
