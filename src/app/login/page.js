@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function Login() {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -101,7 +102,7 @@ export default function Login() {
             </button>
           </form>
           <div className="mt-8 text-center">
-            <p className="text-gray-400">Don't have an account? <a href="/signup" className="text-blue-400 hover:underline">Sign Up</a></p>
+            <p className="text-gray-400">Don't have an account? <Link href="/signup" className="text-blue-400 hover:underline">Sign Up</Link></p>
           </div>
         </div>
       </div>

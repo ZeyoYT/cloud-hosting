@@ -1,25 +1,28 @@
 "use client";
 
-import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useAuth } from '../../../lib/auth';
 import { useRouter } from 'next/navigation';
 
 export default function Navbar() {
     const router = useRouter();
-    let isLoggedIn = useAuth();
+    const [isLoggedIn, setIsLoggedIn] = useState(null); // Initialize with `null` for loading state
 
     useEffect(() => {
-        if (!isLoggedIn) {
-            router.push('/login'); // Redirect to login if not logged in
+        if (typeof window !== "undefined") {
+            // Only access localStorage on the client
+            const user = localStorage.getItem('user');
+            setIsLoggedIn(!!user);
         }
-    }, [isLoggedIn, router]);
+    }, []);
 
     const handleLogout = () => {
         localStorage.removeItem('user');
-        router.push('/login'); // Redirect to login page after logout
+        window.dispatchEvent(new Event('logout')); // Dispatch logout event
+        router.push('/login'); // Redirect to login page
     };
+
+    if (isLoggedIn === null) return null; // Show nothing while loading
 
     return (
         <header className="px-4 shadow bg-gray-900 text-gray-200">
@@ -76,19 +79,19 @@ export default function Navbar() {
                         </li>
                         <li className="mt-2 sm:mt-0">
                             {isLoggedIn ? (
-                                <button
+                                <a
                                     onClick={handleLogout}
-                                    className="rounded-xl border-2 border-blue-600 px-6 py-2 font-medium text-blue-600 hover:bg-blue-600 hover:text-white"
+                                    className="cursor-pointer rounded-xl border-2 border-blue-600 px-6 py-2 font-medium text-blue-600 hover:bg-blue-600 hover:text-white"
                                 >
                                     Logout
-                                </button>
+                                </a>
                             ) : (
-                                <Link
+                                <a
                                     href="/login"
-                                    className="rounded-xl border-2 border-blue-600 px-6 py-2 font-medium text-blue-600 hover:bg-blue-600 hover:text-white"
+                                    className="cursor-pointer rounded-xl border-2 border-blue-600 px-6 py-2 font-medium text-blue-600 hover:bg-blue-600 hover:text-white"
                                 >
                                     Login
-                                </Link>
+                                </a>
                             )}
                         </li>
                     </ul>
