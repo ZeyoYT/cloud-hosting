@@ -26,13 +26,6 @@ export default function ServicePage() {
       .catch(error => console.error("Fetch error:", error));
   }, []);
 
-  const handleRating = (plan, rating) => {
-    setRatings(prevRatings => ({
-      ...prevRatings,
-      [plan]: rating,
-    }));
-  };
-
   return (
     <section className="py-16">
       <div className="container mx-auto px-4">
@@ -85,7 +78,7 @@ export default function ServicePage() {
                 <p className="text-gray-300">
                   Our Free VPS Hosting plan provides limited but reliable server performance for developers and testers. It is perfect for small, non-commercial projects, offering a chance to explore and experiment with VPS hosting without any cost. The resources are shared with other users, meaning the performance may vary during peak usage times, but it's an excellent way to get familiar with virtual server management.
                 </p>
-                <p className="text-gray-300">
+                <div className="text-gray-300">
                   Features:
                   <ul className="list-disc pl-6 text-gray-300">
                     <li>1 vCPU</li>
@@ -93,7 +86,7 @@ export default function ServicePage() {
                     <li>10GB of storage</li>
                     <li>Basic support and security features</li>
                   </ul>
-                </p>
+                </div>
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-blue-300">Free Shared Hosting</h3>
@@ -122,7 +115,7 @@ export default function ServicePage() {
                 <p className="text-gray-300">
                   The Premium VPS Hosting plan provides unmatched server performance, ideal for businesses, e-commerce sites, or any project requiring high-speed and reliability. You have full control with root access, enabling you to install custom software, configure security settings, and optimize performance for your specific needs.
                 </p>
-                <p className="text-gray-300">
+                <div className="text-gray-300">
                   Features:
                   <ul className="list-disc pl-6">
                     <li>2 vCPUs</li>
@@ -132,13 +125,13 @@ export default function ServicePage() {
                     <li>24/7 premium support</li>
                     <li>Advanced security and monitoring tools</li>
                   </ul>
-                </p>
+                </div>
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-blue-300">Premium Shared Hosting</h3>
-                <p className="text-gray-300">
+                <div className="text-gray-300">
                   Our Premium Shared Hosting offers more power and flexibility for medium-to-large websites. With unlimited bandwidth and 20GB of SSD storage, this plan ensures fast performance and reliable uptime, along with the tools needed for growing your site.
-                </p>
+                </div>
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-blue-300">Optimized WordPress Hosting</h3>
