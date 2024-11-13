@@ -126,7 +126,7 @@ export default function Component() {
                 </ul>
               </CardContent>
               <CardFooter>
-                <Button className={`w-full rounded bg-slate-300 ${hostingType.commingSoon ? "bg-slate-400 hover:bg-slate-400/75 text-white" : ""}`}>
+                <Button className={`w-full rounded bg-slate-300 text-lg ${hostingType.commingSoon ? "bg-slate-400 hover:bg-slate-400/75 text-white" : ""}`}>
 
                   {hostingType.commingSoon ? "Coming Soon" : "Get Started"}
 
