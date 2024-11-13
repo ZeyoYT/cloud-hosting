@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import Aos from 'aos';
 
 export default function Login() {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -41,7 +42,7 @@ export default function Login() {
   };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-black to-gray-900 text-white p-8">
-      <div className="flex w-full max-w-4xl shadow-xl rounded-lg overflow-hidden bg-gray-800">
+      <div className="flex w-full max-w-4xl shadow-xl rounded-lg overflow-hidden bg-gray-800" data-aos="zoom-x-out">
         
         {/* Sidebar */}
         <div className="hidden md:flex w-1/2 bg-gradient-to-br from-gray-900 to-gray-800 flex-col items-center justify-center p-10 text-gray-300">

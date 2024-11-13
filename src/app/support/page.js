@@ -1,5 +1,6 @@
 "use client";
 import { useState } from 'react';
+import Aos from 'aos';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -37,7 +38,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center text-white py-16">
+    <div className="min-h-screen flex flex-col items-center justify-center text-white py-16" data-aos="fade-up">
       <div className="flex flex-col md:flex-row w-full max-w-5xl shadow-lg rounded-lg overflow-hidden mb-16 space-y-8 md:space-y-0">
         
         {/* Left Section - Contact Form with Ping Animations */}

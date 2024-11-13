@@ -43,7 +43,7 @@ export default function Signup() {
   };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-black to-gray-900 text-white p-8">
-      <div className="flex w-full max-w-4xl shadow-xl rounded-lg overflow-hidden bg-gray-800">
+      <div className="flex w-full max-w-4xl shadow-xl rounded-lg overflow-hidden bg-gray-800" data-aos="zoom-x-out">
         {/* Sidebar */}
         <div className="hidden md:flex w-1/2 bg-gradient-to-br from-gray-900 to-gray-800 flex-col items-center justify-center p-10 text-gray-300">
           <h2 className="text-4xl font-bold text-blue-500 mb-4 animate-pulse">Join Our Community</h2>
