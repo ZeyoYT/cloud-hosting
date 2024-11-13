@@ -1,11 +1,5 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { 
-  Accordion,
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent
-} from "@radix-ui/react-accordion"
 import { Check } from 'lucide-react'
 
 export default function Component() {
@@ -35,7 +29,7 @@ export default function Component() {
         price: "100 Rs",
         features: [
           "5 Websites",
-          "60 GB SSD",
+          "20 GB SSD",
           "Unmetered Bandwidth",
           "Free SSL",
           "1-Click WordPress Install",
@@ -52,14 +46,15 @@ export default function Component() {
         price: "250 Rs",
         features: [
           "10 Websites",
-          "100 GB Storage",
+          "50 GB Storage",
           "Unmetered Bandwidth",
           "Free SSL",
           "Free Domain (1st year)",
           "24/7 Support"
         ]
       },
-      isPopular: false
+      isPopular: false,
+      commingSoon: true
     },
     {
       type: "Dedicated Hosting",
@@ -71,12 +66,13 @@ export default function Component() {
           "8 Core CPU",
           "32 GB RAM",
           "1 TB SSD",
-          "10 TB Bandwidth",
+          "5 TB Bandwidth",
           "Full Root Access",
           "24/7 Support"
         ]
       },
-      isPopular: false
+      isPopular: false,
+      commingSoon: true
     },
     {
       type: "Reseller Hosting",
@@ -93,7 +89,8 @@ export default function Component() {
           "24/7 Support"
         ]
       },
-      isPopular: false
+      isPopular: false,
+      commingSoon: true
     }
   ]
 
@@ -108,10 +105,10 @@ export default function Component() {
         </header>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 mx-4">
           {hostingPlans.map((hostingType) => (
-            <Card key={hostingType.type} className="relative flex flex-col bg-gradient-to-tr from-slate-500 to-indigo-300 text-gray-300 last:col-span-2 last:from-slate-800 last:to-slate-200">
+            <Card key={hostingType.type} className="relative flex flex-col bg-gradient-to-tr from-gray-500 to-indigo-400 text-gray-300 last:col-span-2 last:from-slate-800 last:to-slate-400">
               <CardHeader>
-                <CardTitle className="text-2xl text-black">{hostingType.type}</CardTitle>
-                <CardDescription className="text-secondary">{hostingType.description}</CardDescription>
+                <CardTitle className="text-2xl text-gray-300">{hostingType.type}</CardTitle>
+                <CardDescription className="text-gray-300 text-lg">{hostingType.description}</CardDescription>
               </CardHeader>
               <CardContent className="flex-grow">
                 <div className="mb-4">
@@ -129,7 +126,11 @@ export default function Component() {
                 </ul>
               </CardContent>
               <CardFooter>
-                <Button className="w-full rounded bg-slate-300">Choose Plan</Button>
+                <Button className={`w-full rounded bg-slate-300 ${hostingType.commingSoon ? "bg-slate-400 hover:bg-slate-400/75 text-white" : ""}`}>
+
+                  {hostingType.commingSoon ? "Coming Soon" : "Get Started"}
+
+                </Button>
               </CardFooter>
 
               {hostingType.isPopular && (
