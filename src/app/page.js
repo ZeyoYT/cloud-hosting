@@ -5,9 +5,13 @@ import Hostingplan from './components/Hostingplan';
 import Features from './components/Features';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
+import Link from 'next/link';
+import { useAuth } from '/lib/auth';
 
 
 export default function Home() {
+  const isLoggedIn = useAuth();
+
   useEffect(() => {
     AOS.init({ duration: 900 });
     document.title = "Cloud Hosting";
@@ -20,9 +24,17 @@ export default function Home() {
         <p className="text-lg mt-4 max-w-2xl">
           Elevate your online presence with our VPS hosting solutions, offering unmatched performance and scalability for websites of all sizes. Our state-of-the-art infrastructure ensures your site is always up and running, providing a seamless experience for your visitors.
         </p>
-        <a href="/signup" className="mt-8 bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-md text-lg font-semibold transition">
-          Get Started
-        </a>
+        
+        {isLoggedIn ? (
+          <Link href="/dashboard" className="mt-8 bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-md text-lg font-semibold transition">
+            Get Started
+          </Link>
+        ) : (
+          <Link href="/signup" className="mt-8 bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-md text-lg font-semibold transition">
+            Get Started
+          </Link>
+        )}
+        
       </div>
 
       <section className="py-16" data-aos="fade-right">
