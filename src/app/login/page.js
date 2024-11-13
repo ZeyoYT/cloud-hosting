@@ -30,12 +30,10 @@ export default function Login() {
         throw new Error((await response.json()).message);
       }
 
-      const data = await response.json();
-
       localStorage.setItem('user', JSON.stringify({ email: formData.email }));
-
-
       setSubmitted(true);
+      
+      window.dispatchEvent(new Event('login'));
       setTimeout(() => router.push('/'), 2000); // Redirect to dashboard on successful login
     } catch (error) {
       setError(error.message);
