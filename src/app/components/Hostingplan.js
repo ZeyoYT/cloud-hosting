@@ -24,7 +24,7 @@ export default function HostingPlans() {
         {plans.map(plan => (
           <div
             key={plan.id}
-            className="bg-gray-800 shadow-md rounded-lg p-6 border border-gray-200 hover:shadow-lg transition-shadow duration-300"
+            className="bg-gray-800 shadow-md shadow-gray-500 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300"
           >
             <h3 className="text-2xl font-semibold mb-2">{plan.name}</h3>
             <p className="text-xl text-blue-600 font-bold mb-4">{plan.price}</p>
@@ -32,7 +32,7 @@ export default function HostingPlans() {
               {plan.features.map((feature, index) => (
                 <li key={index} className="flex items-center">
                   <span className="text-green-500 mr-2">✔</span>
-                  {feature}
+                  <span className='text-gray-300'>{feature}</span>
                 </li>
               ))}
             </ul>
