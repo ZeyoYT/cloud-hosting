@@ -2,8 +2,15 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import AOS from 'aos';
 
 export default function Signup() {
+
+  useEffect(() => {
+    AOS.init({ duration: 900 });
+    document.title = "Sign Up | Cloud Hosting";
+  }, []);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',

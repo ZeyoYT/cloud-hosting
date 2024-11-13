@@ -6,8 +6,9 @@ import Link from 'next/link';
 
 const AboutPage = () => {
     useEffect(() => {
-        AOS.init({ duration: 1000 });
-    }, []);
+        AOS.init({ duration: 100 });
+        document.title = "About | Cloud Hosting";
+      }, []);
 
     return (
         <div className="about-container text-white min-h-screen p-6">

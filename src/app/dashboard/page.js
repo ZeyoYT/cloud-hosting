@@ -12,6 +12,11 @@ export default function Dashboard() {
   const [servers, setServers] = useState([]);
 
   useEffect(() => {
+    AOS.init({ duration: 900 });
+    document.title = "Dashboard | Cloud Hosting";
+  }, []);
+
+  useEffect(() => {
     if (isUserLoggedIn) {
       router.push('/');
     } else {

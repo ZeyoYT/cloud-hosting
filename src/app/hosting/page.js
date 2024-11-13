@@ -9,7 +9,7 @@ import AOS from 'aos'
 export default function Component() {
   useEffect(() => {
     AOS.init({ duration: 900 });
-    document.title = "Hosting";
+    document.title = "Hosting | Cloud Hosting";
   }, []);
 
   const hostingPlans = [
@@ -88,7 +88,7 @@ export default function Component() {
       description: "Start your own hosting business with our reseller plans",
       plan: {
         name: "Reseller Plus",
-        price: "500 Rs",
+        price: "20000 Rs",
         features: [
           "Upto 200 Accounts",
           "Upto 2 TB Storage",

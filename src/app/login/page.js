@@ -11,6 +11,11 @@ export default function Login() {
   const [error, setError] = useState('');
   const router = useRouter();
 
+  useEffect(() => {
+    AOS.init({ duration: 900 });
+    document.title = "Login | Cloud Hosting";
+  }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });

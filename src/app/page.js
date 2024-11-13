@@ -8,7 +8,6 @@ import AOS from 'aos';
 import Link from 'next/link';
 import { useAuth } from '/lib/auth';
 
-
 export default function Home() {
   const isLoggedIn = useAuth();
 

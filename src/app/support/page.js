@@ -1,8 +1,14 @@
 "use client";
-import { useState } from 'react';
-import Aos from 'aos';
+import { useState, useEffect } from 'react';
+import AOS from 'aos';
 
 export default function Contact() {
+
+  useEffect(() => {
+    AOS.init({ duration: 900 });
+    document.title = "Support | Cloud Hosting";
+  }, []);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
