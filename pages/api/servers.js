@@ -1,8 +1,9 @@
-import { connectToDatabase } from '../../lib/mongodb';
+import { MongoClient } from 'mongodb';
 
 export default async function handler(req, res) {
   const { userId } = req.query;
-  const { db } = await connectToDatabase();
+  const client = await MongoClient.connect(process.env.MONGODB_URI);
+  const db = client.db();
   
   if (req.method === 'GET') {
     const servers = await db.collection('servers').find({ userId }).toArray();
