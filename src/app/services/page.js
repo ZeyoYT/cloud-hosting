@@ -46,7 +46,7 @@ export default function ServicePage() {
             <h2 className="text-4xl font-semibold text-center text-blue-600 mb-6">
               Demo Hosting Plan
             </h2>
-            <p className="text-lg text-gray-600 mb-4">Perfect for developers, testing, or small websites.</p>
+            <p className="text-lg text-blue-300 mb-4">Perfect for developers, testing, or small websites.</p>
             <div className="space-y-4">
               <p><strong>Storage:</strong> 1GB SSD</p>
               <p><strong>Bandwidth:</strong> 10GB</p>
@@ -62,7 +62,7 @@ export default function ServicePage() {
             <h2 className="text-4xl font-semibold text-center text-blue-600 mb-6">
               Premium Hosting Plan
             </h2>
-            <p className="text-lg text-gray-600 mb-4">Ideal for businesses or high-traffic websites.</p>
+            <p className="text-lg text-blue-300 mb-4">Ideal for businesses or high-traffic websites.</p>
             <div className="space-y-4">
               <p><strong>Storage:</strong> 20GB SSD</p>
               <p><strong>Bandwidth:</strong> Unlimited</p>
@@ -81,13 +81,13 @@ export default function ServicePage() {
             </h2>
             <div className="space-y-6">
               <div>
-                <h3 className="text-xl font-semibold">Free VPS Hosting</h3>
-                <p className="text-gray-500">
+                <h3 className="text-xl font-semibold text-blue-300">Free VPS Hosting</h3>
+                <p className="text-gray-300">
                   Our Free VPS Hosting plan provides limited but reliable server performance for developers and testers. It is perfect for small, non-commercial projects, offering a chance to explore and experiment with VPS hosting without any cost. The resources are shared with other users, meaning the performance may vary during peak usage times, but it's an excellent way to get familiar with virtual server management.
                 </p>
-                <p className="text-gray-500">
+                <p className="text-gray-300">
                   Features:
-                  <ul className="list-disc pl-6">
+                  <ul className="list-disc pl-6 text-gray-300">
                     <li>1 vCPU</li>
                     <li>512MB RAM</li>
                     <li>10GB of storage</li>
@@ -96,14 +96,14 @@ export default function ServicePage() {
                 </p>
               </div>
               <div>
-                <h3 className="text-xl font-semibold">Free Shared Hosting</h3>
-                <p className="text-gray-500">
+                <h3 className="text-xl font-semibold text-blue-300">Free Shared Hosting</h3>
+                <p className="text-gray-300">
                   Our Free Shared Hosting plan gives you the essentials for hosting a personal website or blog. You get 1GB of storage and up to 10GB of bandwidth, enough for smaller projects. However, since resources are shared, performance may fluctuate. It's an ideal choice for hobbyists or anyone looking to start a small, static website.
                 </p>
               </div>
               <div>
-                <h3 className="text-xl font-semibold">Free WordPress Hosting</h3>
-                <p className="text-gray-500">Get started with WordPress for free. This plan provides 1GB of storage and comes pre-installed with the WordPress CMS. It includes basic themes and plugins but lacks advanced customization options, scalability, and enhanced security. It’s ideal for testing WordPress or launching a simple personal blog. You’ll also receive access to a basic support system and regular updates. Advanced features such as SSL certificates, performance optimization, and automated backups are only available in paid versions.</p>
+                <h3 className="text-xl font-semibold text-blue-300">Free WordPress Hosting</h3>
+                <p className="text-gray-300">Get started with WordPress for free. This plan provides 1GB of storage and comes pre-installed with the WordPress CMS. It includes basic themes and plugins but lacks advanced customization options, scalability, and enhanced security. It’s ideal for testing WordPress or launching a simple personal blog. You’ll also receive access to a basic support system and regular updates. Advanced features such as SSL certificates, performance optimization, and automated backups are only available in paid versions.</p>
               </div>
             </div>
           </div>
@@ -118,11 +118,11 @@ export default function ServicePage() {
             </h2>
             <div className="space-y-6">
               <div>
-                <h3 className="text-xl font-semibold">Premium VPS Hosting</h3>
-                <p className="text-gray-500">
+                <h3 className="text-xl font-semibold text-blue-300">Premium VPS Hosting</h3>
+                <p className="text-gray-300">
                   The Premium VPS Hosting plan provides unmatched server performance, ideal for businesses, e-commerce sites, or any project requiring high-speed and reliability. You have full control with root access, enabling you to install custom software, configure security settings, and optimize performance for your specific needs.
                 </p>
-                <p className="text-gray-500">
+                <p className="text-gray-300">
                   Features:
                   <ul className="list-disc pl-6">
                     <li>2 vCPUs</li>
@@ -135,14 +135,14 @@ export default function ServicePage() {
                 </p>
               </div>
               <div>
-                <h3 className="text-xl font-semibold">Premium Shared Hosting</h3>
-                <p className="text-gray-500">
+                <h3 className="text-xl font-semibold text-blue-300">Premium Shared Hosting</h3>
+                <p className="text-gray-300">
                   Our Premium Shared Hosting offers more power and flexibility for medium-to-large websites. With unlimited bandwidth and 20GB of SSD storage, this plan ensures fast performance and reliable uptime, along with the tools needed for growing your site.
                 </p>
               </div>
               <div>
-                <h3 className="text-xl font-semibold">Optimized WordPress Hosting</h3>
-                <p className="text-gray-500">Our Optimized WordPress Hosting is designed for performance and security. This plan includes automatic updates, daily backups, free SSL certificates, and access to advanced caching systems, ensuring that your WordPress site loads quickly and securely. It comes with 10GB of SSD storage, unlimited bandwidth, and enhanced security features, such as malware scanning and firewall protection. Ideal for professional bloggers, e-commerce stores, and high-traffic content websites.</p>
+                <h3 className="text-xl font-semibold text-blue-300">Optimized WordPress Hosting</h3>
+                <p className="text-gray-300">Our Optimized WordPress Hosting is designed for performance and security. This plan includes automatic updates, daily backups, free SSL certificates, and access to advanced caching systems, ensuring that your WordPress site loads quickly and securely. It comes with 10GB of SSD storage, unlimited bandwidth, and enhanced security features, such as malware scanning and firewall protection. Ideal for professional bloggers, e-commerce stores, and high-traffic content websites.</p>
               </div>
             </div>
           </div>
