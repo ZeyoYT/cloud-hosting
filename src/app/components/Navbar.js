@@ -1,33 +1,23 @@
+// navbar.js
 "use client";
-
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useAuth } from '../../../lib/auth';
 
 export default function Navbar() {
     const router = useRouter();
-    const [isLoggedIn, setIsLoggedIn] = useState(null); 
-
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            const user = localStorage.getItem('user');
-            setIsLoggedIn(!!user);
-        }
-    }, []);
+    const isLoggedIn = useAuth();
 
     const handleLogout = () => {
         localStorage.removeItem('user');
-        window.dispatchEvent(new Event('logout')); 
+        window.dispatchEvent(new Event('logout'));
         router.push('/login');
-        router.refresh();
     };
 
     const handleLoginBtn = () => {
         router.push('/login');
-        router.refresh();
     };
-
-    if (isLoggedIn === null) return null; 
 
     return (
         <header className="px-4 shadow bg-gray-900 text-gray-200">
