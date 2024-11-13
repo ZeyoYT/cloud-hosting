@@ -6,11 +6,10 @@ import { useRouter } from 'next/navigation';
 
 export default function Navbar() {
     const router = useRouter();
-    const [isLoggedIn, setIsLoggedIn] = useState(null); // Initialize with `null` for loading state
+    const [isLoggedIn, setIsLoggedIn] = useState(null); 
 
     useEffect(() => {
         if (typeof window !== "undefined") {
-            // Only access localStorage on the client
             const user = localStorage.getItem('user');
             setIsLoggedIn(!!user);
         }
@@ -18,11 +17,11 @@ export default function Navbar() {
 
     const handleLogout = () => {
         localStorage.removeItem('user');
-        window.dispatchEvent(new Event('logout')); // Dispatch logout event
-        router.push('/login'); // Redirect to login page
+        window.dispatchEvent(new Event('logout')); 
+        router.push('/login');
     };
 
-    if (isLoggedIn === null) return null; // Show nothing while loading
+    if (isLoggedIn === null) return null; 
 
     return (
         <header className="px-4 shadow bg-gray-900 text-gray-200">

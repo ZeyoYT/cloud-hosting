@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
       await client.connect();
-      const db = client.db('db-flexi'); 
+      const db = client.db('flexi-db'); 
       const collection = db.collection('subscribers');
 
       const { email } = req.body;

@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import 'aos/dist/aos.css';
 import AOS from 'aos'; 
+import Link from 'next/link';
 
 const AboutPage = () => {
     useEffect(() => {
@@ -39,13 +40,12 @@ const AboutPage = () => {
                     <h2 className="text-3xl font-semibold text-indigo-300 mt-10 border-b-2 border-gray-300 pb-2">Meet the Team</h2>
                     <div className="team-members flex space-x-4 overflow-x-auto mt-6">
                         {[
-                            { name: 'Sushant Kumar Yadav', role: 'CEO', image: '/images/sushant.jpg' },
-                            { name: 'Dev Vachhani', role: 'CTO', image: '/images/dev.jpg' },
-                            { name: 'Harsh Trivedi', role: 'Lead Developer', image: '/images/harsh.jpg' },
-                            { name: 'Chandrakant Sirgire', role: 'Junior Developer', image: '/images/chandu.jpg' },
+                            { name: 'Dev Vachhani', role: 'Product Manager'},
+                            { name: 'Harsh Trivedi', role: 'Lead Developer',},
+                            { name: 'Sushant Kumar Yadav', role: 'Developer'},
+                            { name: 'Chandrakant Sirgire', role: 'Intern',},
                         ].map((member, index) => (
                             <div key={index} className="team-member w-[250px] text-center p-6 bg-gray-100 rounded-lg shadow-md hover:bg-indigo-100 hover:scale-105 transform transition duration-300 ease-out cursor-pointer" data-aos="flip-left" data-aos-delay={`${index * 100}`}>
-                                <img src={member.image} alt={member.name} className="w-24 h-24 rounded-full mx-auto mb-4" />
                                 <h3 className="text-xl font-semibold text-black">{member.name}</h3>
                                 <p className="text-gray-500">{member.role}</p>
                             </div>
@@ -57,7 +57,9 @@ const AboutPage = () => {
                     <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
                         {['Shared Hosting', 'VPS Hosting', 'WordPress Hosting'].map((service, index) => (
                             <li key={index} className="text-lg text-black px-4 py-6 bg-gray-100 rounded-lg shadow-md hover:bg-indigo-100 hover:scale-105 transform transition duration-300 ease-out cursor-pointer flex justify-center items-center font-semibold" data-aos="zoom-in" data-aos-delay={`${index * 100}`}>
-                                {service}
+                                <Link href="/services" className="block w-full h-full text-black hover:text-indigo-500">
+                                    {service}
+                                </Link>
                             </li>
                         ))}
                     </ul>
