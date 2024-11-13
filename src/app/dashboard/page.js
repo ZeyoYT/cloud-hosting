@@ -56,7 +56,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6 bg-gray-50">
+    <div className="min-h-screen flex items-center justify-center p-6">
       {isUserLoggedIn ? (
         <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-4xl">
           <div className="flex justify-between items-center mb-6">
