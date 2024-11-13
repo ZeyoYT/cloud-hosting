@@ -57,22 +57,22 @@ export default function Navbar() {
                 >
                     <ul className="flex flex-col items-center gap-y-4 sm:flex-row sm:gap-x-8">
                         <li>
-                            <Link href="/" className="text-gray-600 hover:text-blue-600">
+                            <Link href="/" className="text-gray-400 hover:text-blue-600">
                                 Home
                             </Link>
                         </li>
                         <li>
-                            <Link href="/about" className="text-gray-600 hover:text-blue-600">
+                            <Link href="/about" className="text-gray-400 hover:text-blue-600">
                                 About
                             </Link>
                         </li>
                         <li>
-                            <Link href="/services" className="text-gray-600 hover:text-blue-600">
+                            <Link href="/services" className="text-gray-400 hover:text-blue-600">
                                 Services
                             </Link>
                         </li>
                         <li>
-                            <Link href="/support" className="text-gray-600 hover:text-blue-600">
+                            <Link href="/support" className="text-gray-400 hover:text-blue-600">
                                 Support
                             </Link>
                         </li>
