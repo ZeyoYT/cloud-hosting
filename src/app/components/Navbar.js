@@ -81,7 +81,7 @@ export default function Navbar() {
                                 <div className='grid grid-cols-2 grid-rows-1 px-4 items-center text-center gap-x-2'>
                                     <a
                                         onClick={handleDashboardBtn}
-                                        className="cursor-pointer rounded-xl border-2 py-1 px-6 border-orange-600 font-medium text-orange-600 hover:bg-blue-600 hover:text-white"
+                                        className="cursor-pointer rounded-xl border-2 py-1 px-6 border-orange-600 font-medium text-orange-600 hover:bg-orange-600 hover:text-white"
                                     >
                                     Dashboard
                                     </a>
