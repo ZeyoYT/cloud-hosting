@@ -1,8 +1,17 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Check } from 'lucide-react'
+import { useEffect } from 'react'
+import AOS from 'aos'
 
 export default function Component() {
+  useEffect(() => {
+    AOS.init({ duration: 900 });
+    document.title = "Hosting";
+  }, []);
+
   const hostingPlans = [
     {
       type: "VPS-Mini Hosting",
