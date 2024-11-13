@@ -15,6 +15,10 @@ export default function Navbar() {
         router.push('/login');
     };
 
+    const handleDashboardBtn = () => {
+        router.push('/dashboard');
+    };
+
     const handleLoginBtn = () => {
         router.push('/login');
     };
@@ -51,7 +55,7 @@ export default function Navbar() {
                     aria-label="Header Navigation"
                     className="peer-checked:block hidden pl-2 py-6 sm:block sm:py-0"
                 >
-                    <ul className="flex flex-col gap-y-4 sm:flex-row sm:gap-x-8">
+                    <ul className="flex flex-col items-center gap-y-4 sm:flex-row sm:gap-x-8">
                         <li>
                             <Link href="/" className="text-gray-600 hover:text-blue-600">
                                 Home
@@ -74,12 +78,21 @@ export default function Navbar() {
                         </li>
                         <li className="mt-2 sm:mt-0">
                             {isLoggedIn ? (
-                                <a
-                                    onClick={handleLogout}
-                                    className="cursor-pointer rounded-xl border-2 border-blue-600 px-6 py-2 font-medium text-blue-600 hover:bg-blue-600 hover:text-white"
-                                >
-                                    Logout
-                                </a>
+                                <div className='grid grid-cols-2 grid-rows-1 px-4 items-center text-center gap-x-2'>
+                                    <a
+                                        onClick={handleDashboardBtn}
+                                        className="cursor-pointer rounded-xl border-2 py-1 px-6 border-orange-600 font-medium text-orange-600 hover:bg-blue-600 hover:text-white"
+                                    >
+                                    Dashboard
+                                    </a>
+                                    
+                                    <a
+                                        onClick={handleLogout}
+                                        className="cursor-pointer rounded-xl border-2 py-1 px-6 border-blue-600 font-medium text-blue-600 hover:bg-blue-600 hover:text-white"
+                                    >
+                                        Logout
+                                    </a>
+                                </div>
                             ) : (
                                 <a
                                     onClick={handleLoginBtn}
