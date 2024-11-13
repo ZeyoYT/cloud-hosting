@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useEffect } from 'react';
-import Hostingplan from './components/Hostingplan';
-import Features from './components/Features';
+import Hostingplan from '../components/Hostingplan';
+import Features from '../components/Features';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import Link from 'next/link';

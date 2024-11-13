@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '../../../lib/auth';
+import { useAuth } from '../../lib/auth';
 
 export default function Navbar() {
     const router = useRouter();
@@ -67,8 +67,8 @@ export default function Navbar() {
                             </Link>
                         </li>
                         <li>
-                            <Link href="/services" className="text-gray-400 hover:text-blue-600">
-                                Services
+                            <Link href="/hosting" className="text-gray-400 hover:text-blue-600">
+                                Hosting
                             </Link>
                         </li>
                         <li>
