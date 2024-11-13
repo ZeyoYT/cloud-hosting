@@ -28,7 +28,7 @@ export default function HostingPlans() {
           >
             <h3 className="text-2xl font-semibold mb-2">{plan.name}</h3>
             <p className="text-xl text-blue-600 font-bold mb-4">{plan.price}</p>
-            <ul className="space-y-2 text-gray-700">
+            <ul className="space-y-2 text-gray-400">
               {plan.features.map((feature, index) => (
                 <li key={index} className="flex items-center">
                   <span className="text-green-500 mr-2">✔</span>

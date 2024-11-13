@@ -19,6 +19,12 @@ export default function Navbar() {
         localStorage.removeItem('user');
         window.dispatchEvent(new Event('logout')); 
         router.push('/login');
+        router.refresh();
+    };
+
+    const handleLoginBtn = () => {
+        router.push('/login');
+        router.refresh();
     };
 
     if (isLoggedIn === null) return null; 
@@ -86,7 +92,7 @@ export default function Navbar() {
                                 </a>
                             ) : (
                                 <a
-                                    href="/login"
+                                    onClick={handleLoginBtn}
                                     className="cursor-pointer rounded-xl border-2 border-blue-600 px-6 py-2 font-medium text-blue-600 hover:bg-blue-600 hover:text-white"
                                 >
                                     Login

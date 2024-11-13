@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect } from 'react';
 import Hostingplan from './components/Hostingplan';
 import Features from './components/Features';
