@@ -12,14 +12,14 @@ export default function Dashboard() {
   const [servers, setServers] = useState([]);
 
   useEffect(() => {
-    if (!isUserLoggedIn) {
-      router.push('/login');
+    if (isUserLoggedIn) {
+      router.push('/');
     } else {
       fetchServers();
     }
 
     AOS.init({ duration: 1000 });
-  }, [isUserLoggedIn, router]);
+  }, []);
 
   const fetchServers = async () => {
     try {
