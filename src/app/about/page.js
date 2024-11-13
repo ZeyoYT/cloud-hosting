@@ -45,7 +45,7 @@ const AboutPage = () => {
                             { name: 'Sushant Kumar Yadav', role: 'Developer'},
                             { name: 'Chandrakant Sirgire', role: 'Intern',},
                         ].map((member, index) => (
-                            <div key={index} className="team-member w-[250px] text-center p-6 bg-gray-100 rounded-lg shadow-md hover:bg-indigo-100 hover:scale-105 transform transition duration-300 ease-out cursor-pointer" data-aos="flip-left" data-aos-delay={`${index * 100}`}>
+                            <div key={index} className="team-member w-[250px] flex flex-col items-center justify-center text-center p-6 bg-gray-100 rounded-lg shadow-md hover:bg-indigo-100 hover:scale-105 transform transition duration-300 ease-out cursor-pointer" data-aos="flip-left" data-aos-delay={`${index * 100}`}>
                                 <h3 className="text-xl font-semibold text-black">{member.name}</h3>
                                 <p className="text-gray-500">{member.role}</p>
                             </div>
@@ -57,7 +57,7 @@ const AboutPage = () => {
                     <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
                         {['Shared Hosting', 'VPS Hosting', 'WordPress Hosting'].map((service, index) => (
                             <li key={index} className="text-lg text-black px-4 py-6 bg-gray-100 rounded-lg shadow-md hover:bg-indigo-100 hover:scale-105 transform transition duration-300 ease-out cursor-pointer flex justify-center items-center font-semibold" data-aos="zoom-in" data-aos-delay={`${index * 100}`}>
-                                <Link href="/services" className="block w-full h-full text-black hover:text-indigo-500">
+                                <Link href="/services" className="block w-full h-full text-black hover:text-indigo-500 text-center">
                                     {service}
                                 </Link>
                             </li>
