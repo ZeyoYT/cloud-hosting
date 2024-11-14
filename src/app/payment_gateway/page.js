@@ -18,9 +18,9 @@ export default function PaymentGateway() {
         const urlParams = new URLSearchParams(window.location.search);
         const from = urlParams.get('from');
 
-        if (!isLoggedIn || from !== 'hosting') {
-            router.push('/error'); 
-        }
+        // if (!isLoggedIn || from !== 'hosting') {
+        //     router.push('/error'); 
+        // }
     }, [isLoggedIn, router]);
 
     const handlePayment = () => {
