@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import Aos from 'aos';
+import AOS from 'aos';
 
 export default function Login() {
   const [formData, setFormData] = useState({ email: '', password: '' });
