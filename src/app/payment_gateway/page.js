@@ -4,9 +4,10 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '/lib/auth';
 
-export default function PaymentGateway() {
+export default function PaymentGateway(data) {
     const [amount, setAmount] = useState('');
     const [name, setName] = useState('');
+    const [type, setType] = useState('');
     const [email, setEmail] = useState('');
     const [upiId, setUpiId] = useState('users@upi');
     const [isPaid, setIsPaid] = useState(false);
@@ -17,9 +18,10 @@ export default function PaymentGateway() {
     useEffect(() => {
         const urlParams = new URLSearchParams(window.location.search);
         const from = urlParams.get('from');
-        const serviceType = urlParams.get('serviceType');
-
-        // if (!isLoggedIn || from !== 'hosting') {
+        const serviceType = urlParams.get('plan');
+        setType(serviceType);
+        
+        // if (!isLoggedIn || from != 'hosting') {
         //     router.push('/error'); 
         // }
     }, [isLoggedIn, router]);
@@ -44,7 +46,7 @@ export default function PaymentGateway() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ name, serviceType, email, amount, upiId }),
+                body: JSON.stringify({ name, type, email, amount, upiId }),
             });
 
             if (response.ok) {
@@ -62,6 +64,11 @@ export default function PaymentGateway() {
         savePayment();
         console.log("Payment confirmed by user");
     };
+
+    useEffect(() => {
+        const getPrice = localStorage.getItem('hosting_price');
+        setAmount(getPrice);
+    }, [])
 
     return (
         <div className="min-h-screen flex items-center justify-center">
@@ -91,10 +98,10 @@ export default function PaymentGateway() {
                 <div className="mb-4">
                     <label className="block text-gray-700">Amount</label>
                     <input
-                        type="number"
                         className="w-full px-3 py-2 border rounded-lg text-cyan-500"
                         value={amount}
-                        onChange={(e) => setAmount(e.target.value)}
+                        onChange={(e) => setAmount(getPrice)}
+                        readOnly
                         required
                     />
                 </div>

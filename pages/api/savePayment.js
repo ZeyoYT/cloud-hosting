@@ -1,3 +1,4 @@
+import { UUID } from 'mongodb';
 import clientPromise from '../../lib/mongodb';
 
 export default async function handler(req, res) {
@@ -17,6 +18,12 @@ export default async function handler(req, res) {
                 createdAt: new Date()
             });
 
+            const vps = await db.collection("services").insertOne({
+                email,
+                type,
+                createdAt: new Date()
+            });
+            
             res.status(200).json({ message: 'Payment saved successfully', data: result });
         } catch (error) {
             res.status(500).json({ message: 'Error saving payment', error });

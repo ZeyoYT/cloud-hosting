@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   const db = client.db();
   
   if (req.method === 'GET') {
-    const servers = await db.collection('servers').find({ userId }).toArray();
+    const servers = await db.collection('services').find({ userId }).toArray();
     res.status(200).json(servers);
   } else {
     res.status(405).json({ message: 'Method not allowed' });
