@@ -17,6 +17,7 @@ export default function PaymentGateway() {
     useEffect(() => {
         const urlParams = new URLSearchParams(window.location.search);
         const from = urlParams.get('from');
+        const serviceType = urlParams.get('serviceType');
 
         // if (!isLoggedIn || from !== 'hosting') {
         //     router.push('/error'); 
@@ -43,7 +44,7 @@ export default function PaymentGateway() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ name, email, amount, upiId }),
+                body: JSON.stringify({ name, serviceType, email, amount, upiId }),
             });
 
             if (response.ok) {

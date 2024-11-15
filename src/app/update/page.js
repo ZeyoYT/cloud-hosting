@@ -49,7 +49,12 @@ export default function Editdetails() {
         const errorData = await response.json();
         throw new Error(errorData.message || 'Failed to update details');
       }
+
       setSubmitted(true);
+
+      localStorage.removeItem('user');
+      window.dispatchEvent(new Event('logout'));
+      router.push('/login');
       setTimeout(() => router.push('/login'), 2000);
     } catch (error) {
       setError(error.message);

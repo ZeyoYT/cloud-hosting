@@ -3,13 +3,14 @@ import clientPromise from '../../lib/mongodb';
 export default async function handler(req, res) {
     if (req.method === 'POST') {
         try {
-            const { name, email, amount, upiId } = req.body;
+            const { name, type, email, amount, upiId } = req.body;
 
             const client = await clientPromise;
             const db = client.db("flexi-db");
 
             const result = await db.collection("payments").insertOne({
                 name,
+                type,
                 email,
                 amount,
                 upiId,

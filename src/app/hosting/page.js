@@ -6,7 +6,7 @@ import { Check } from 'lucide-react'
 import { useEffect } from 'react'
 import AOS from 'aos'
 
-export default function Component() {
+export default function Hosting() {
   useEffect(() => {
     AOS.init({ duration: 900 });
     document.title = "Hosting | Cloud Hosting";
@@ -139,7 +139,7 @@ export default function Component() {
                   className={`w-full rounded bg-slate-300 text-lg ${hostingType.commingSoon ? "bg-slate-400 hover:bg-slate-400/75 text-white" : ""}`}
                   onClick={() => { if (!hostingType.commingSoon) 
                     {
-                      window.location.href='/payment_gateway?fromhosting'; 
+                      window.location.href='/payment_gateway?fromhosting&plan=' + hostingType.plan.name; 
                     }
                   }}
                 >
