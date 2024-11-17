@@ -61,6 +61,16 @@ export default function Dashboard() {
     router.push('/update');
   };
 
+  function getProperDate(data) {
+    const date = new Date(data);
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+    const year = date.getFullYear();
+    const formattedDate = `${day}/${month}/${year}`;
+
+    return formattedDate;
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center">
       {isUserLoggedIn ? (
@@ -91,19 +101,13 @@ export default function Dashboard() {
                   data-aos="fade-up"
                 >
                   <span className="text-lg font-semibold text-gray-800 mb-2">
-                    {server.name}
+                    {server.type}
                   </span>
-                  <span
-                    className={`px-3 py-1 rounded-full text-sm font-semibold mb-4 ${
-                      server.status === 'Active'
-                        ? 'bg-green-200 text-green-800'
-                        : 'bg-red-200 text-red-800'
-                    }`}
-                  >
-                    {server.status}
+                  <span className="text-md font-semibold text-gray-500 mb-2">
+                    {getProperDate(server.createdAt)}
                   </span>
+                  
                   <button
-                    onClick={() => toggleServerStatus(server._id)}
                     className={`w-full px-4 py-2 text-sm font-medium text-white rounded-md ${
                       server.status === 'Active' ? 'bg-red-500' : 'bg-green-500'
                     } hover:bg-opacity-90 transition`}

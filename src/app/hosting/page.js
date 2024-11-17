@@ -139,7 +139,11 @@ export default function Hosting() {
                   className={`w-full rounded bg-slate-300 text-lg ${hostingType.commingSoon ? "bg-slate-400 hover:bg-slate-400/75 text-white" : ""}`}
                   onClick={() => { if (!hostingType.commingSoon) 
                     {
-                      window.location.href='/payment_gateway?fromhosting&plan=' + hostingType.plan.name; 
+                      localStorage.setItem(
+                        "hosting_price",
+                        hostingType.plan.price
+                      )
+                      window.location.href='/payment_gateway?from=hosting&plan=' + hostingType.plan.name; 
                     }
                   }}
                 >
